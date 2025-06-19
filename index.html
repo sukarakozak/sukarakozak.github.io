@@ -1,0 +1,128 @@
+<<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinCareGuide – Skincare Routine Recommender</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter bg-gradient-to-br from-teal-600 to-cyan-800 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full text-center transform transition-all duration-300 hover:scale-105">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">SkinCareGuide</h1>
+        <p class="text-gray-600 mb-8 text-lg">Get personalized routine recommendations based on your skin type and conditions.</p>
+        
+        
+
+        <!-- Question Steps -->
+        <div id="step0" class="question-step active">
+            <p class="text-xl font-semibold mb-4 text-gray-800">What's your name?</p>
+            <input type="text" id="userNameInput" class="border border-gray-300 rounded py-2 px-4 w-full" placeholder="Enter your name...">
+        </div>
+        <div id="step1" class="question-step active">
+            <p class="text-xl font-semibold mb-4 text-gray-800">Do you have acne-prone skin?</p>
+            <div class="space-y-3">
+                <label class="radio-label">
+                    <input type="radio" name="hasAcne" value="Yes" class="radio-input"> Yes
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="hasAcne" value="No" class="radio-input"> No
+                </label>
+            </div>
+        </div>
+
+        <div id="step2" class="question-step hidden">
+            <p class="text-xl font-semibold mb-4 text-gray-800">What's your skin type?</p>
+            <div class="space-y-3">
+                <label class="radio-label">
+                    <input type="radio" name="skinType" value="Dry" class="radio-input"> Dry
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="skinType" value="Oily" class="radio-input"> Oily
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="skinType" value="Combination" class="radio-input"> Combination
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="skinType" value="Sensitive" class="radio-input"> Sensitive
+                </label>
+            </div>
+        </div>
+
+        <div id="step3" class="question-step hidden">
+            <p class="text-xl font-semibold mb-4 text-gray-800">Is it morning or evening?</p>
+            <div class="space-y-3">
+                <label class="radio-label">
+                    <input type="radio" name="timeOfDay" value="Morning" class="radio-input"> Morning
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="timeOfDay" value="Evening" class="radio-input"> Evening
+                </label>
+            </div>
+        </div>
+
+        <div id="step4" class="question-step hidden">
+            <p class="text-xl font-semibold mb-4 text-gray-800">Are you going outside?</p>
+            <div class="space-y-3">
+                <label class="radio-label">
+                    <input type="radio" name="goingOutside" value="Yes" class="radio-input"> Yes
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="goingOutside" value="No" class="radio-input"> No
+                </label>
+            </div>
+        </div>
+
+        <div id="step5" class="question-step hidden">
+            <p class="text-xl font-semibold mb-4 text-gray-800">What's the weather like?</p>
+            <div class="space-y-3">
+                <label class="radio-label">
+                    <input type="radio" name="weather" value="Sunny" class="radio-input"> Sunny
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="weather" value="Cloudy" class="radio-input"> Cloudy
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="weather" value="Rainy" class="radio-input"> Rainy
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="weather" value="Snowy" class="radio-input"> Snowy
+                </label>
+            </div>
+        </div>
+
+        <!-- Validation Message -->
+        <p id="validationMessage" class="text-red-600 text-sm mt-4 hidden">Please make a selection!</p>
+
+        <!-- Navigation Buttons -->
+        <div class="mt-8 flex justify-center space-x-4">
+            <button
+                id="nextBtn"
+                class="flex-1 bg-teal-600 text-white py-3 px-6 rounded-xl text-lg font-semibold shadow-lg hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1"
+            >
+                Next
+            </button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="mt-8 p-6 bg-teal-50 rounded-xl border border-teal-200 hidden">
+            <h2 class="text-2xl font-bold text-teal-800 mb-4">Here's your personalized routine:</h2>
+            <ul id="routineList" class="text-teal-700 text-lg space-y-2 text-left">
+                <!-- Routine steps will be inserted here by JavaScript -->
+            </ul>
+            <div class="mt-6 flex justify-center">
+                <button
+                    id="restartBtn"
+                    class="hidden bg-gray-300 text-gray-800 py-3 px-6 rounded-xl text-lg font-semibold shadow-lg hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1"
+                >
+                    Start Over
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
